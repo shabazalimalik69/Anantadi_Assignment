@@ -1,22 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const app = express();
-const connectDB = require("./Config/db")
-const Router = require("./Routers/allRouters");
-const path = require("path")
-const PORT = process.env.PORT || 8000;
+const mongoose = require("mongoose");
 
-app.use(cors());
-app.use(express.json())
-app.use("/",Router);
-app.use("/public",express.static(path.join(__dirname,"public")));
+const videoSchema = new mongoose.Schema({
+    name:{type:String},
+    videos:[{type:String}]
+},{timestamps:true});
 
-app.get("/",(req,res)=>{
-    res.send("Home Page")
-});
+const Video = mongoose.model("Video",videoSchema);
 
-app.listen(PORT,async()=>{
-    await connectDB();
-    console.log(`Running on http://localhost:${PORT}`);
-});
+module.exports = Video;
