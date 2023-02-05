@@ -2,7 +2,6 @@ const Video = require("../Models/videoModel");
 
 
 const uploadVideo = async(req,res)=>{
-   const {name} = req.body;
    let videosPaths = [];
    if(Array.isArray(req.files.videos) && req.files.videos.length>0){
     for(let video of req.files.videos){
@@ -10,9 +9,11 @@ const uploadVideo = async(req,res)=>{
     }
    }
    try{
+    const {name,type} = req.body;
      const uploadedVideos = await Video.create({
-        name,
         videos : videosPaths,
+        name,
+        type,
      });
      return res.status(200).send({message:"Successfully Uploaded",uploadedVideos})
    }catch(error){
