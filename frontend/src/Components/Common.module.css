@@ -1,0 +1,27 @@
+.container{
+    /* border:1px solid; */
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:30px;
+    margin: auto;
+}
+
+.uploadVideo{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width:max-content;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.card{
+    width: max-content;
+    /* border: 1px solid green; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
